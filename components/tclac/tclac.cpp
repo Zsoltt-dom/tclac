@@ -67,7 +67,7 @@ void tclacClimate::loop()  {
 		delay(5);
 		dataRX[4] = esphome::uart::UARTDevice::read();
 
-		auto raw = getHex(dataRX, 5);
+		std::string raw = getHex(dataRX, 5);
 		
 		//ESP_LOGD("TCL", "first 5 byte : %s ", raw.c_str());
 
@@ -76,9 +76,9 @@ void tclacClimate::loop()  {
 
 		byte check = getChecksum(dataRX, sizeof(dataRX));
 
-		raw = getHex(dataRX, sizeof(dataRX));
+		//raw = getHex(dataRX, sizeof(dataRX));
 		// Convert to a single hex line
-		std::string raw = getHex(dataRX, 5);
+		raw = getHex(dataRX, 5);
 
 		// Log in one line
 		ESP_LOGD("TCL", "RX full: %s", raw.c_str());
