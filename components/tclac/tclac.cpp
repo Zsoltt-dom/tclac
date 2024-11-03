@@ -76,11 +76,11 @@ void tclacClimate::loop()  {
 
 		byte check = getChecksum(dataRX, sizeof(dataRX));
 
-		//raw = getHex(dataRX, sizeof(dataRX));
+		raw = getHex(dataRX, sizeof(dataRX));
 
 		// Log in one line
 
-		ESP_LOGD("TCL", "RX full : %s ", raw.c_str());
+		ESP_LOGD("TCL", "RX full : %x ", raw.c_str());
 		
 		// Проверяем контрольную сумму
 		if (check != dataRX[60]) {
