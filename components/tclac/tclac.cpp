@@ -284,10 +284,10 @@ void tclacClimate::takeControl() {
 	
 	if ((display_status_) && (switch_climate_mode != climate::CLIMATE_MODE_OFF)){
 		ESP_LOGD("TCL", "Dispaly turn ON");
-		dataTX[7] += 0b01000000;
+		dataTX[7] += 0b00000100;
 	} else {
 		ESP_LOGD("TCL", "Dispaly turn OFF");
-		dataTX[7] += 0b00000000;
+		dataTX[7] += 0b00100000;
 	}
 		
 	// Настраиваем режим работы кондиционера
