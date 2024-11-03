@@ -286,7 +286,7 @@ void tclacClimate::takeControl() {
 	
 	if ((display_status_) && (switch_climate_mode != climate::CLIMATE_MODE_OFF)){
 		ESP_LOGD("TCL", "Dispaly turn ON");
-		dataTX[7] += 0b00000100;
+		dataTX[7] += 0b00110000;
 	} else {
 		ESP_LOGD("TCL", "Dispaly turn OFF");
 		dataTX[7] += 0b00100000;
@@ -299,23 +299,23 @@ void tclacClimate::takeControl() {
 			dataTX[8] += 0b00000000;
 			break;
 		case climate::CLIMATE_MODE_AUTO:
-			dataTX[7] += 0b00000100;
+			//dataTX[7] += 0b00000100;
 			dataTX[8] += 0b00001000;
 			break;
 		case climate::CLIMATE_MODE_COOL:
-			dataTX[7] += 0b00000100;
+			//dataTX[7] += 0b00000100;
 			dataTX[8] += 0b00000011;	
 			break;
 		case climate::CLIMATE_MODE_DRY:
-			dataTX[7] += 0b00000100;
+			//dataTX[7] += 0b00000100;
 			dataTX[8] += 0b00000010;	
 			break;
 		case climate::CLIMATE_MODE_FAN_ONLY:
-			dataTX[7] += 0b00000100;
+			//dataTX[7] += 0b00000100;
 			dataTX[8] += 0b00000111;	
 			break;
 		case climate::CLIMATE_MODE_HEAT:
-			dataTX[7] += 0b00000100;
+			//dataTX[7] += 0b00000100;
 			dataTX[8] += 0b00000001;	
 			break;
 	}
